@@ -8,8 +8,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 3. Configuração do Banco de Dados (usando a DATABASE_URL do Railway)
-const pool = mysql.createPool(process.env.DATABASE_URL);
+    // 3. Configuração do Banco de Dados (usando as variáveis de ambiente corretas)
+    const pool = mysql.createPool({
+        host: process.env.MYSQLHOST,
+        user: process.env.MYSQLUSER,
+        password: process.env.MYSQLPASSWORD,
+        database: process.env.MYSQLDATABASE,
+        port: process.env.MYSQLPORT,
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0
+    });
+    
 
 // 4. Rotas da API
 

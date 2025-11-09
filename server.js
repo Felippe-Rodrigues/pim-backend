@@ -10,15 +10,17 @@
 
     // 3. Configuração do Banco de Dados (com pool de conexões para MySQL)
     const pool = mysql.createPool({
-        host: process.env.MYSQLHOST,
-        user: process.env.MYSQLUSER,
-        password: process.env.MYSQLPASSWORD,
-        database: process.env.MYSQLDATABASE,
-        port: process.env.MYSQLPORT,
-        waitForConnections: true,
-        connectionLimit: 10,
-        queueLimit: 0
-    });
+    // As variáveis abaixo apontam para a rede PRIVADA do Railway
+    host: process.env.MYSQL_PRIVATE_HOST || process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+    port: process.env.MYSQL_PRIVATE_PORT || process.env.MYSQLPORT,
+    waitForConnections: true,
+    connectionLimit: 10,    queueLimit: 0
+});
+
+
 
     // 4. Rota para testar se a API está viva
     app.get('/', (req, res) => {

@@ -83,8 +83,8 @@
     });
 
     // 5. Iniciar o Servidor
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Servidor rodando na porta ${PORT}`);
-    });
-    
+       const PORT = process.env.PORT || 3000;
+    const HOST = '0.0.0.0'; // Escuta em todos os endereços de rede disponíveis
+
+    app.listen(PORT, HOST, () => {console.log(`Servidor rodando em http://${HOST}:${PORT}`);    
+});

@@ -4,6 +4,21 @@ const sql = require('mssql');
 const cors = require('cors');
 const app = express();
 
+    //... depois de const app = express();
+
+    console.log("--- DEBUG: VERIFICANDO VARIÁVEIS DE AMBIENTE ---");
+    console.log("MYSQLHOST:", process.env.MYSQLHOST);
+    console.log("MYSQLUSER:", process.env.MYSQLUSER);
+    console.log("MYSQLDATABASE:", process.env.MYSQLDATABASE);
+    console.log("MYSQLPORT:", process.env.MYSQLPORT);
+    console.log("A Senha do Banco foi recebida?:", process.env.MYSQLPASSWORD ? "Sim" : "NÃO!");
+    console.log("-------------------------------------------------");
+
+    // O resto do seu código continua abaixo...
+    // app.use(cors());
+    // app.use(express.json());
+    // ...etc
+
 // 2. Middlewares
 app.use(cors());
 app.use(express.json());

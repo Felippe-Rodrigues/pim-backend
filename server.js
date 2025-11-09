@@ -78,9 +78,9 @@ app.post('/chamados', async (req, res) => {
     }
 });
 
-// 5. Iniciar o Servidor
-const PORT = process.env.PORT || 3000;
-const HOST = '0.0.0.0';
-app.listen(PORT, HOST, () => {
-    console.log(`Servidor COMPLETO rodando em http://${HOST}:${PORT}`);
-});
+    // 5. Iniciar o Servidor
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Servidor final rodando na porta ${PORT}`);
+    });
+    

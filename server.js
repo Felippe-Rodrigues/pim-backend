@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-    // 3. Configuração do Banco de Dados (usando as variáveis de ambiente corretas)
+        // 3. Configuração do Banco de Dados (usando as variáveis de ambiente explícitas)
     const pool = mysql.createPool({
         host: process.env.MYSQLHOST,
         user: process.env.MYSQLUSER,
@@ -19,6 +19,7 @@ app.use(express.json());
         connectionLimit: 10,
         queueLimit: 0
     });
+    
     
 
 // 4. Rotas da API
